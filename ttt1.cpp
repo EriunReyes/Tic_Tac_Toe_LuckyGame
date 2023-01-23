@@ -25,6 +25,8 @@ void TTT(){
 
     std::string result ;
 
+    std::cout << " Tic Tac Toe Lucky Game " << std::endl ;
+
     while (turns <= tic_tac_toe.size()) {
 
         int random_number = dist(rng) ;
@@ -43,14 +45,18 @@ void TTT(){
 
             if (player1 > 10 || player1 < 0) {
                 
-                std::cout << "Player1 is out of range\n" ; break ; 
+                std::cout << "Player1 is out of range \n " ;
+
+                std::cout << " Game is over \n " ;
+
+                return ; 
 
                 }
 
 
             if ((player1 + random_number) % 2 == 0) {
 
-                std::cout << "Player1 guessed it correctly\n" ;
+                std::cout << "Player1 guessed it correctly \n " ;
 
                 tic_tac_toe[turns] = 'X' ;
 
@@ -59,11 +65,11 @@ void TTT(){
             
             else {
 
-                std::cout << " Player1 has gave a chance to player2 \n" ;
+                std::cout << " Player1 has gave a chance to player2 \n " ;
 
                 tic_tac_toe[turns] = 'O' ;
 
-                turns++;
+                turns++ ;
             }
 
             std::cout << std::endl ;
@@ -75,16 +81,18 @@ void TTT(){
 
             if (player2 > 10 || player2 < 0) {
 
-                std::cout << "Player2 is out of range\n" ; 
+                std::cout << "Player2 is out of range \n " ; 
 
-                break ;
+                std::cout << " Game is over \n " ;
+
+                return ;
 
             }
 
 
             if ((player2 + random_number) % 2 == 1) {
 
-                std::cout << "Player2 guessed it correctly\n" ;
+                std::cout << "Player2 guessed it correctly \n " ;
 
                 tic_tac_toe[turns] = 'O' ;
 
@@ -93,7 +101,7 @@ void TTT(){
 
             else {
 
-                std::cout << " Player2 has gave a chance to player1 \n" ;
+                std::cout << " Player2 has gave a chance to player1 \n " ;
 
                 tic_tac_toe[turns] = 'X' ;
 
@@ -107,6 +115,9 @@ void TTT(){
         }
 
         }
+
+    std::cout << std::endl ;
+
     std::cout << " -|" << tic_tac_toe[0] << " |--" << "-|" << tic_tac_toe[1] << " |--" << "-|" << tic_tac_toe[2] << " |- \n" ;
 
     std::cout << " -|" << tic_tac_toe[3] << " |--" << "-|" << tic_tac_toe[4] << " |--" << "-|" << tic_tac_toe[5] << " |- \n" ;
@@ -133,9 +144,12 @@ void TTT(){
 
     if (points_player1 != points_player2) {
 
+
         result = (points_player1 > points_player2) ? "player1 wins" : "player2 wins" ;
 
-        std::cout <<  "player1 " << points_player1 << " ----- " <<  "player2 "<< points_player2 << std::endl ;
+        std::cout <<  "player1 " << points_player1 << " points " << " ----- " <<  " player2 "<< points_player2 << " points " << std::endl ;
+
+        std::cout << std::endl ;
 
         std::cout << result << std::endl ;
 
